@@ -1,6 +1,7 @@
 module.exports = (app) => {
 
     app.get('/noticias', (req, res) => {
+
         const mysql = require('mysql');
 
         const connection = mysql.createConnection({
@@ -13,7 +14,8 @@ module.exports = (app) => {
         connection.query('select * from noticias', (erro, result) => {
             res.render('noticias/noticias', {noticias: result});
         });
-
+        
+        
         
     });
 };
